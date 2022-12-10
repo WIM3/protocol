@@ -1,2 +1,2 @@
 # infinix
-Infinix projet
+Infinix project
