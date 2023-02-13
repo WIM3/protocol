@@ -1,2 +1,2 @@
-# infinix
-Infinix project
+# TradersIsland
+Traders Island project
