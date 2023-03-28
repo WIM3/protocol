@@ -11,7 +11,7 @@ const deployAPI3PriceFeed: DeployFunction = async function (hre: HardhatRuntimeE
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  console.log(`Deploying API3PriceFeed...`);
+  console.log(`Deploying API3PriceFeed with deployer...`, await deployer.toString());
 
   const deployResult = await deploy("API3PriceFeed", {
     from: deployer,
@@ -19,6 +19,7 @@ const deployAPI3PriceFeed: DeployFunction = async function (hre: HardhatRuntimeE
     log: true,
   });
 
+  console.log(`API3PriceFeed DAPI_SERVER deployer`, DAPI_SERVER);
   console.log(`API3PriceFeed is deployed at ${deployResult.address}\n`);
 
   // try {

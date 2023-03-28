@@ -2,14 +2,14 @@
 pragma solidity 0.6.9;
 pragma experimental ABIEncoderV2;
 
-import { IERC20 } from "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
-import { IfnxFiOwnableUpgrade } from "./utils/IfnxFiOwnableUpgrade.sol";
-import { Decimal } from "./utils/Decimal.sol";
-import { SupplySchedule } from "./SupplySchedule.sol";
-import { RewardsDistribution } from "./RewardsDistribution.sol";
-import { IInflationMonitor } from "./interface/IInflationMonitor.sol";
-import { IIfnxToken } from "./interface/IIfnxToken.sol";
-import { IMinter } from "./interface/IMinter.sol";
+import {IERC20} from "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
+import {IfnxFiOwnableUpgrade} from "./utils/IfnxFiOwnableUpgrade.sol";
+import {Decimal} from "./utils/Decimal.sol";
+import {SupplySchedule} from "./SupplySchedule.sol";
+import {RewardsDistribution} from "./RewardsDistribution.sol";
+import {IInflationMonitor} from "./interface/IInflationMonitor.sol";
+import {IIfnxToken} from "./interface/IIfnxToken.sol";
+import {IMinter} from "./interface/IMinter.sol";
 
 contract Minter is IMinter, IfnxFiOwnableUpgrade {
     using Decimal for Decimal.decimal;

@@ -1,5 +1,9 @@
 import { ethers } from "hardhat";
 
+import { Wallet, utils } from "zksync-web3";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
+
 async function main() {
   // We get the contract to deploy
   const IfnxToken = await ethers.getContractFactory("IfnxToken");
@@ -9,7 +13,7 @@ async function main() {
 
   await ifnxToken.deployed();
 
-  console.log("IfnxToken deployed to:", ifnxToken.address);
+  console.log("Isle deployed to:", ifnxToken.address);
 }
 
 main().catch((error) => {

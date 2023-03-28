@@ -77,7 +77,12 @@ const deployAmmAVAXUSDC3: DeployFunction = async function (hre: HardhatRuntimeEn
 
   console.log(`Configuring InsuranceFund...`);
   console.log(`>>> Adding AVAX/USDC3 Amm...`);
-  await execute("InsuranceFund", { from: deployer, log: true }, "addAmm", deployResult.address);
+  await execute(
+    "InsuranceFund",
+    { from: deployer, log: true, gasLimit: 5000000 },
+    "addAmm",
+    deployResult.address
+  );
   console.log("\n");
 
   console.log(`Opening AVAX/USDC3 Amm...`);

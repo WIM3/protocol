@@ -7,6 +7,10 @@ import "hardhat-deploy";
 import "solidity-coverage";
 import "hardhat-contract-sizer";
 import "hardhat-gas-reporter";
+
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
+
 import { HardhatUserConfig, task } from "hardhat/config";
 import { BigNumber } from "ethers";
 
@@ -73,6 +77,11 @@ export default {
       accounts: {
         mnemonic: process.env.MNEMONIC || "",
       },
+    },
+    zkSyncTestnet: {
+      url: "https://zksync2-testnet.zksync.dev",
+      ethNetwork: "goerli", // Can also be the RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
+      zksync: true,
     },
   },
   settings: {

@@ -13,11 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/advancedblockchain/hardhat-framework.git"
+    "url": "git+https://github.com/WIM3/hardhat-framework.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/advancedblockchain/hardhat-framework.git/issues"
+    "url": "https://github.com/WIM3/hardhat-framework.git/issues"
   },
   "husky": {
     "hooks": {
@@ -25,6 +25,8 @@
     }
   },
   "devDependencies": {
+    "@matterlabs/hardhat-zksync-deploy": "^0.6.3",
+    "@matterlabs/hardhat-zksync-solc": "^0.3.14",
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@typechain/ethers-v5": "^7.0.1",
@@ -33,8 +35,8 @@
     "@types/node": "^16.6.0",
     "chai": "^4.3.4",
     "ethereum-waffle": "^3.4.0",
-    "ethers": "^5.4.4",
-    "hardhat": "^2.6.0",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.13.0",
     "hardhat-contract-sizer": "^2.0.3",
     "hardhat-deploy": "^0.8.11",
     "hardhat-gas-reporter": "^1.0.4",
@@ -43,9 +45,10 @@
     "prettier-plugin-solidity": "^1.0.0-beta.17",
     "solhint-plugin-prettier": "0.0.5",
     "solidity-coverage": "^0.7.16",
-    "ts-node": "^10.2.0",
+    "ts-node": "^10.9.1",
     "typechain": "^5.1.2",
-    "typescript": "^4.3.5"
+    "typescript": "^5.0.2",
+    "zksync-web3": "^0.13.1"
   },
   "dependencies": {
     "@api3/airnode-protocol-v1": "^0.5.1",
@@ -61,5 +64,12 @@
     "solhint": "^3.3.6",
     "solidity-bytes-utils": "0.1.2",
     "ts-generator": "^0.1.1"
-  }
+  },
+  "homepage": "https://github.com/WIM3/hardhat-framework#readme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }

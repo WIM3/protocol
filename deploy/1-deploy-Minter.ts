@@ -11,7 +11,7 @@ const deployMinter: DeployFunction = async function (hre: HardhatRuntimeEnvironm
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  console.log(`Deploying Minter...`);
+  console.log(`Deploying Minter...`, await deployer.toString());
 
   const deployResult = await deploy("Minter", {
     from: deployer,

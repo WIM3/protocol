@@ -4,6 +4,9 @@ import { Side } from "../test/helper/contract";
 import { toDecimal, toFullDigit } from "../test/helper/number";
 import { TetherToken } from "../types";
 
+import { IFNX_TOKEN } from "../constants/constants";
+import { QUOTE_ASSET } from "../constants/constants";
+
 async function main() {
   const [alice, bob] = await ethers.getSigners();
 
