@@ -61,28 +61,24 @@ export default {
     ],
   },
   networks: {
+    localhost: {
+      url: "http://127.0.0.1:8545"
+    },
     hardhat: {
       allowUnlimitedContractSize: true,
     },
-    rinkeby: {
-      url: process.env.RINKEBY_URL || "",
-      chainId: 4,
-      accounts: {
-        mnemonic: process.env.MNEMONIC || "",
-      },
-    },
-    fuji: {
+/*     fuji: {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
       chainId: 43113,
       accounts: {
-        mnemonic: process.env.MNEMONIC || "",
+        mnemonic: process.env.MNEMONIC || [`0x${process.env.DEPLOYER_PRIVATE_KEY1}`] || "",
       },
     },
     zkSyncTestnet: {
       url: "https://zksync2-testnet.zksync.dev",
       ethNetwork: "goerli", // Can also be the RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
       zksync: true,
-    },
+    }, */
   },
   settings: {
     optimizer: {
