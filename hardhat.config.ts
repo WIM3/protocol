@@ -1,7 +1,7 @@
 import "@typechain/hardhat";
 import "@nomiclabs/hardhat-ethers";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import "@nomiclabs/hardhat-etherscan";
+import "@nomicfoundation/hardhat-verify";
 import "@nomiclabs/hardhat-waffle";
 import "hardhat-deploy";
 import "solidity-coverage";
@@ -67,14 +67,14 @@ export default {
     hardhat: {
       allowUnlimitedContractSize: true,
     },
-/*     fuji: {
+    fuji: {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
       chainId: 43113,
       accounts: {
         mnemonic: process.env.MNEMONIC || [`0x${process.env.DEPLOYER_PRIVATE_KEY1}`] || "",
       },
     },
-    zkSyncTestnet: {
+   /* zkSyncTestnet: {
       url: "https://zksync2-testnet.zksync.dev",
       ethNetwork: "goerli", // Can also be the RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
       zksync: true,
@@ -95,8 +95,11 @@ export default {
     runOnCompile: true,
     disambiguatePaths: false,
   },
+  // avalancheFujiTestnet │ 43113 
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY || "",
+    apiKey: {
+      avalancheFujiTestnet: process.env.ETHERSCAN_API_KEY || "",
+    }
   },
   gasReporter: {
     currency: "USD",
