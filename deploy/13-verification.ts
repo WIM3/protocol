@@ -9,8 +9,9 @@ async function main(){
     const network = "fuji"
 
     const jsonsInDir = fs.readdirSync(`./deployments/${network}`).filter(file => path.extname(file) === '.json');
-    jsonsInDir.forEach(async (file) => {
-        const fileData = fs.readFileSync(path.join(`./deployments/${network}`, file));
+    
+    for (let i = 0; i < jsonsInDir.length; i++) {
+        const fileData = fs.readFileSync(path.join(`./deployments/${network}`, jsonsInDir[i]));
         const json = JSON.parse(fileData.toString());
         try {
             await hre.run("verify:verify", {
@@ -21,7 +22,7 @@ async function main(){
         } catch (error) {
             console.error(`Error occurred while verifying contract ${json.address}: `, error);
         }
-    });
+    }
 
 }
 
