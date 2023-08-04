@@ -3,6 +3,7 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { run } from "hardhat";
 
 import { IFNX_TOKEN, UNISWAP_V2_ROUTER } from "../constants/constants";
+import { verify } from "../scripts/verify";
 
 const deployExchangeWrapper: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
@@ -28,15 +29,7 @@ const deployExchangeWrapper: DeployFunction = async function (hre: HardhatRuntim
 
   console.log(`ExchangeWrapper is deployed at ${deployResult.address}\n`);
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //     constructorArguments: [SELF_SERVE_RRP_BEACON_WHITELISTER],
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  await verify(deployResult.address, [])
 };
 
 export default deployExchangeWrapper;

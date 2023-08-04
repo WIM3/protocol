@@ -3,6 +3,7 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { run } from "hardhat";
 
 import { IFNX_TOKEN, IFNX_VESTING_PERIOD } from "../constants/constants";
+import { verify } from "../scripts/verify";
 
 const deployStakingReserve: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
@@ -36,14 +37,7 @@ const deployStakingReserve: DeployFunction = async function (hre: HardhatRuntime
   await execute("ClearingHouse", { from: deployer, log: true }, "setFeePool", deployResult.address);
   console.log("\n");
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  await verify(deployResult.address, [])
 };
 
 export default deployStakingReserve;

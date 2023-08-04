@@ -3,6 +3,7 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { run } from "hardhat";
 
 import { IFNX_DECAY_RATE, IFNX_INFLATION_RATE, IFNX_MINT_DURATION } from "../constants/constants";
+import { verify } from "../scripts/verify";
 
 const deploySupplySchedule: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
@@ -35,15 +36,7 @@ const deploySupplySchedule: DeployFunction = async function (hre: HardhatRuntime
   await execute("Minter", { from: deployer, log: true }, "setSupplySchedule", deployResult.address);
   console.log("\n");
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //     constructorArguments: [SELF_SERVE_RRP_BEACON_WHITELISTER],
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  await verify(deployResult.address, [])
 };
 
 export default deploySupplySchedule;

@@ -1,6 +1,7 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
 import { run } from "hardhat";
+import { verify } from "../scripts/verify";
 
 const deployRewardsDistribution: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
@@ -49,14 +50,7 @@ const deployRewardsDistribution: DeployFunction = async function (hre: HardhatRu
   );
   console.log("\n");
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  await verify(deployResult.address, [])
 };
 
 export default deployRewardsDistribution;
