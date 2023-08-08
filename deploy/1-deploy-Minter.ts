@@ -6,6 +6,7 @@ import { IFNX_TOKEN } from "../constants/constants";
 import { verify } from "../scripts/verify";
 
 const deployMinter: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+  console.log("test")
   const {
     deployments: { deploy },
     getNamedAccounts,
