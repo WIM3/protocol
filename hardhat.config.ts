@@ -71,6 +71,13 @@ export default {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
       chainId: 43113,
       accounts: {
+      mnemonic: process.env.MNEMONIC || [`0x${process.env.DEPLOYER_PRIVATE_KEY1}`] || "",
+    },
+    },
+    mumbai: {
+      url: "MumbaiRPC",
+      chainId: 80001,
+      accounts: {
         mnemonic: process.env.MNEMONIC || [`0x${process.env.DEPLOYER_PRIVATE_KEY1}`] || "",
       },
     },
