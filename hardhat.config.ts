@@ -67,7 +67,7 @@ export default {
     hardhat: {
       allowUnlimitedContractSize: true,
     },
-/*     fuji: {
+    fuji: {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
       chainId: 43113,
       accounts: {
@@ -76,9 +76,9 @@ export default {
     },
     zkSyncTestnet: {
       url: "https://zksync2-testnet.zksync.dev",
-      ethNetwork: "goerli", // Can also be the RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
+      ethNetwork: "goerli",
       zksync: true,
-    }, */
+    },
   },
   settings: {
     optimizer: {
@@ -96,7 +96,10 @@ export default {
     disambiguatePaths: false,
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY || "",
+    customChains: 'X2WIPWP9FQK7SBE73S8V1X3PDUR96PBARF',
+    apiKey: {
+      avalancheFujiTestnet: 'X2WIPWP9FQK7SBE73S8V1X3PDUR96PBARF'
+    }
   },
   gasReporter: {
     currency: "USD",
@@ -105,4 +108,4 @@ export default {
   namedAccounts: {
     deployer: 0,
   },
-} as HardhatUserConfig;
+} as unknown as HardhatUserConfig;

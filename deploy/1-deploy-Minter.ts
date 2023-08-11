@@ -28,15 +28,14 @@ const deployMinter: DeployFunction = async function (hre: HardhatRuntimeEnvironm
 
   console.log(`Minter is deployed at ${deployResult.address}\n`);
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //     constructorArguments: [SELF_SERVE_RRP_BEACON_WHITELISTER],
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    await new Promise((r) => setTimeout(r, 30000));
+    await run("verify:verify", {
+      address: deployResult.address,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deployMinter;

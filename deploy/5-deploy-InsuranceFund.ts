@@ -54,14 +54,14 @@ const deployInsuranceFund: DeployFunction = async function (hre: HardhatRuntimeE
   );
   console.log("\n");
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    await new Promise((r) => setTimeout(r, 30000));
+    await run("verify:verify", {
+      address: deployResult.address,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deployInsuranceFund;

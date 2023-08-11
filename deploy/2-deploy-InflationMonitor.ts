@@ -37,15 +37,15 @@ const deployInflationMonitor: DeployFunction = async function (hre: HardhatRunti
     deployResult.address
   );
   console.log("\n");
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //     constructorArguments: [SELF_SERVE_RRP_BEACON_WHITELISTER],
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    await new Promise((r) => setTimeout(r, 30000));
+    await run("verify:verify", {
+      address: deployResult.address,
+      constructorArguments: [minter.address],
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deployInflationMonitor;

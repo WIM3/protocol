@@ -89,18 +89,14 @@ const deployAmmAVAXUSDC3: DeployFunction = async function (hre: HardhatRuntimeEn
   await execute("AmmAVAXUSDC3", { from: deployer, log: true }, "setOpen", true);
   console.log("\n");
 
-  // console.log(`Starting supply schedule...`);
-  // await execute("SupplySchedule", { from: deployer, log: true }, "startSchedule");
-  // console.log("\n");
-
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    await new Promise((r) => setTimeout(r, 30000));
+    await run("verify:verify", {
+      address: deployResult.address,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deployAmmAVAXUSDC3;
