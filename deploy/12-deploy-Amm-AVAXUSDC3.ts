@@ -97,6 +97,7 @@ const deployAmmAVAXUSDC3: DeployFunction = async function (hre: HardhatRuntimeEn
   } catch (error) {
     console.log(error);
   }
+  
 };
 
 export default deployAmmAVAXUSDC3;
