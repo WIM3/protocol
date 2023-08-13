@@ -83,9 +83,9 @@ export default {
     },
    /* zkSyncTestnet: {
       url: "https://zksync2-testnet.zksync.dev",
-      ethNetwork: "goerli", // Can also be the RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
+      ethNetwork: "goerli",
       zksync: true,
-    }, */
+    },*/
   },
   settings: {
     optimizer: {
@@ -104,6 +104,7 @@ export default {
   },
   // avalancheFujiTestnet │ 43113 
   etherscan: {
+    customChains: 'X2WIPWP9FQK7SBE73S8V1X3PDUR96PBARF',
     apiKey: {
       avalancheFujiTestnet: process.env.ETHERSCAN_API_KEY || "",
     }
@@ -115,4 +116,4 @@ export default {
   namedAccounts: {
     deployer: 0,
   },
-} as HardhatUserConfig;
+} as unknown as HardhatUserConfig;
