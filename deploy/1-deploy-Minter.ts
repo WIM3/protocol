@@ -3,8 +3,10 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { run } from "hardhat";
 
 import { IFNX_TOKEN } from "../constants/constants";
+import { verify } from "../scripts/verify";
 
 const deployMinter: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+  console.log("test")
   const {
     deployments: { deploy },
     getNamedAccounts,
@@ -28,14 +30,7 @@ const deployMinter: DeployFunction = async function (hre: HardhatRuntimeEnvironm
 
   console.log(`Minter is deployed at ${deployResult.address}\n`);
 
-  try {
-    await new Promise((r) => setTimeout(r, 30000));
-    await run("verify:verify", {
-      address: deployResult.address,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  await verify(deployResult.address, [])
 };
 
 export default deployMinter;

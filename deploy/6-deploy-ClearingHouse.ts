@@ -8,6 +8,7 @@ import {
   LIQUIDATION_FEE_RATIO,
 } from "../constants/constants";
 import { toDecimal } from "../test/helper/number";
+import { verify } from "../scripts/verify";
 
 const deployClearingHouse: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
@@ -61,14 +62,7 @@ const deployClearingHouse: DeployFunction = async function (hre: HardhatRuntimeE
   );
   console.log("\n");
 
-  try {
-    await new Promise((r) => setTimeout(r, 30000));
-    await run("verify:verify", {
-      address: deployResult.address,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  await verify(deployResult.address, [])
 };
 
 export default deployClearingHouse;

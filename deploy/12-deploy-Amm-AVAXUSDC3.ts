@@ -15,6 +15,7 @@ import {
 } from "../constants/constants";
 import { toFullDigit } from "../test/helper/number";
 import { BigNumber } from "ethers";
+import { verify } from "../scripts/verify";
 
 const deployAmmAVAXUSDC3: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
@@ -89,15 +90,11 @@ const deployAmmAVAXUSDC3: DeployFunction = async function (hre: HardhatRuntimeEn
   await execute("AmmAVAXUSDC3", { from: deployer, log: true }, "setOpen", true);
   console.log("\n");
 
-  try {
-    await new Promise((r) => setTimeout(r, 30000));
-    await run("verify:verify", {
-      address: deployResult.address,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-  
+  // console.log(`Starting supply schedule...`);
+  // await execute("SupplySchedule", { from: deployer, log: true }, "startSchedule");
+  // console.log("\n");
+
+  await verify(deployResult.address, [])
 };
 
 export default deployAmmAVAXUSDC3;
