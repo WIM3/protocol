@@ -31,3 +31,15 @@ Trade with up to 10x leverage.
 Trade with low gas fees thanks to Avalanche.
 All trading is 100% on-chain.
 Trading is 100% non-custodial.
+
+## Copy .env File
+
+```bash
+cp .env.sample .env
+```
+
+## Install Dependencies
+
+```bash
+yarn install
+```

@@ -19,14 +19,14 @@ const deployAmmReader: DeployFunction = async function (hre: HardhatRuntimeEnvir
 
   console.log(`AmmReader is deployed at ${deployResult.address}\n`);
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    await new Promise((r) => setTimeout(r, 30000));
+    await run("verify:verify", {
+      address: deployResult.address,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deployAmmReader;

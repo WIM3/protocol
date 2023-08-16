@@ -21,15 +21,15 @@ const deployClearingHouseViewer: DeployFunction = async function (hre: HardhatRu
 
   console.log(`ClearingHouseViewer is deployed at ${deployResult.address}\n`);
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //     constructorArguments: [clearingHouse.address],
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    await new Promise((r) => setTimeout(r, 30000));
+    await run("verify:verify", {
+      address: deployResult.address,
+      constructorArguments: [clearingHouse.address],
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deployClearingHouseViewer;

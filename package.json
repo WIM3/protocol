@@ -53,8 +53,9 @@
   "dependencies": {
     "@api3/airnode-protocol-v1": "^0.5.1",
     "@eth-optimism/smock": "^1.1.10",
+    "@nomicfoundation/hardhat-verify": "^1.1.1",
     "@nomiclabs/ethereumjs-vm": "^4.2.2",
-    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@opengsn/gsn": "^2.1.0",
     "@openzeppelin/contracts-ethereum-package": "^3.0.0",
     "@openzeppelin/test-helpers": "^0.5.15",

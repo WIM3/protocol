@@ -28,15 +28,15 @@ const deployExchangeWrapper: DeployFunction = async function (hre: HardhatRuntim
 
   console.log(`ExchangeWrapper is deployed at ${deployResult.address}\n`);
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //     constructorArguments: [SELF_SERVE_RRP_BEACON_WHITELISTER],
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    await new Promise((r) => setTimeout(r, 30000));
+    await run("verify:verify", {
+      address: deployResult.address,
+      constructorArguments: [UNISWAP_V2_ROUTER, IFNX_TOKEN],
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deployExchangeWrapper;

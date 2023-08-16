@@ -36,14 +36,14 @@ const deployStakingReserve: DeployFunction = async function (hre: HardhatRuntime
   await execute("ClearingHouse", { from: deployer, log: true }, "setFeePool", deployResult.address);
   console.log("\n");
 
-  // try {
-  //   await new Promise((r) => setTimeout(r, 30000));
-  //   await run("verify:verify", {
-  //     address: deployResult.address,
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    await new Promise((r) => setTimeout(r, 30000));
+    await run("verify:verify", {
+      address: deployResult.address,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deployStakingReserve;
