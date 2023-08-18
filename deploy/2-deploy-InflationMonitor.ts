@@ -1,6 +1,7 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
 import { run } from "hardhat";
+import { verify } from "../scripts/verify";
 
 const deployInflationMonitor: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
@@ -37,15 +38,7 @@ const deployInflationMonitor: DeployFunction = async function (hre: HardhatRunti
     deployResult.address
   );
   console.log("\n");
-  try {
-    await new Promise((r) => setTimeout(r, 30000));
-    await run("verify:verify", {
-      address: deployResult.address,
-      constructorArguments: [minter.address],
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  await verify(deployResult.address, [])
 };
 
 export default deployInflationMonitor;

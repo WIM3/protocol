@@ -1,7 +1,7 @@
 import "@typechain/hardhat";
 import "@nomiclabs/hardhat-ethers";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import "@nomiclabs/hardhat-etherscan";
+import "@nomicfoundation/hardhat-verify";
 import "@nomiclabs/hardhat-waffle";
 import "hardhat-deploy";
 import "solidity-coverage";
@@ -71,14 +71,21 @@ export default {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
       chainId: 43113,
       accounts: {
+      mnemonic: process.env.MNEMONIC || [`0x${process.env.DEPLOYER_PRIVATE_KEY1}`] || "",
+    },
+    },
+    mumbai: {
+      url: "MumbaiRPC",
+      chainId: 80001,
+      accounts: {
         mnemonic: process.env.MNEMONIC || [`0x${process.env.DEPLOYER_PRIVATE_KEY1}`] || "",
       },
     },
-    zkSyncTestnet: {
+   /* zkSyncTestnet: {
       url: "https://zksync2-testnet.zksync.dev",
       ethNetwork: "goerli",
       zksync: true,
-    },
+    },*/
   },
   settings: {
     optimizer: {
@@ -95,10 +102,11 @@ export default {
     runOnCompile: true,
     disambiguatePaths: false,
   },
+  // avalancheFujiTestnet │ 43113 
   etherscan: {
     customChains: 'X2WIPWP9FQK7SBE73S8V1X3PDUR96PBARF',
     apiKey: {
-      avalancheFujiTestnet: 'X2WIPWP9FQK7SBE73S8V1X3PDUR96PBARF'
+      avalancheFujiTestnet: process.env.ETHERSCAN_API_KEY || "",
     }
   },
   gasReporter: {

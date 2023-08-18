@@ -3,6 +3,7 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { run } from "hardhat";
 
 import { DAPI_SERVER } from "../constants/constants";
+import { verify } from "../scripts/verify";
 
 const deployAPI3PriceFeed: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
@@ -22,15 +23,7 @@ const deployAPI3PriceFeed: DeployFunction = async function (hre: HardhatRuntimeE
   console.log(`API3PriceFeed DAPI_SERVER deployer`, DAPI_SERVER);
   console.log(`API3PriceFeed is deployed at ${deployResult.address}\n`);
 
-  try {
-    await new Promise((r) => setTimeout(r, 30000));
-    await run("verify:verify", {
-      address: deployResult.address,
-      constructorArguments: [DAPI_SERVER],
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  await verify(deployResult.address, [DAPI_SERVER])
 };
 
 export default deployAPI3PriceFeed;

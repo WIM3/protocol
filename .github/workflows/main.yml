@@ -22,7 +22,7 @@ jobs:
       - name: Tests
         env:
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}           
-          MNEMONIC: ${{ secrets.MNEMONIC }}  
+          MNEMONIC: ${{ secrets.MNEMONIC }}
         run: |
           yarn
           yarn run prettier:solidity
